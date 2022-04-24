@@ -39,13 +39,13 @@ def play():
         else:
             print("Nap")
     
-    nums = map(lambda x: x[len(color) % 2], numbers.values())
-    number = input("Select a number of the following: "+str(nums)+ "\n")
+    nums = list(map(lambda x: x[len(color) % 2], numbers.values()))
+    number = int(input("Select a number of the following: "+str(nums)+ "\n"))
     if number in nums:
-        print("You chose: "+number)
+        print("You chose: "+str(number))
     else:
         print("Invalid number")
-        play()
+        return()
 
     for i in range(number):
         if i % 2 == 0:
@@ -53,15 +53,14 @@ def play():
         else:
             print("Nap")
     
-    nums = map(lambda x: x[(len(color) + number)  % 2], numbers.values())
-    final = input("Select a number of the following: "+str(nums)+ "\n")
+    nums = list(map(lambda x: x[(len(color) + number)  % 2], numbers.values()))
+    final = int(input("Select a number of the following: "+str(nums)+ "\n"))
     if final in nums:
-        print("You chose: "+final)
-
-        print(messages[color][len(color) % 2])
+        print("You chose: "+str(final))
+        print(messages[final])
     else:
         print("Invalid number")
-        play()
+        return()
     
 
 
